@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17130F">
+
+  <title>Animocha ☕</title>
+  <meta
+    name="description"
+    content="The digital café for animators. Discover independent creators, animation, art, and stories!"
+  >
+
+  <link rel="icon" href="./assets/img/icons/blk-esp.png">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Animocha home">
+      <!-- <span class="brand-icon" aria-hidden="true">☕</span> -->
+      <span>Animocha</span>
+    </a>
+
+    <!--
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+    >
+      Menu
+    </button>
+
+    
+    <nav id="primary-nav" class="primary-nav"
+         aria-label="Main navigation">
+      <a href="#explore">Explore</a>
+      <a href="#create">Create</a>
+      <a href="#channel">My Channel</a>
+      <a href="#media">My Media</a>
+    </nav>
+    -->
+
+    <a class="button button-primary" href="#login">
+      Sign in
+    </a>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">THE DIGITAL CAFE FOR ANIMATORS</p>
+        <h1>Welcome to Animocha!</h1>
+        <p class="hero-description">
+          Discover independent creators, share your work,
+          and find your corner of the creative world. 
+          No AI, no unfair algorithms, just build 
+          your dreams here flexibly!
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#explore">
+            COMING SOON!
+          </a>
+          <a class="button button-secondary" href="#create">
+            IN DEVELOPMENT...
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <img
+          src="./assets/img/blkesp-logo.png"
+          alt=""
+        >
+      </div>
+    </section>
+
+    <section id="explore" class="content-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">IN DEVELOPMENT</p>
+          <h2>In current development...</h2>
+        </div>
+        <!-- <a href="#all-creators">placeholder</a> -->
+      </div>
+
+      <div id="creator-grid" class="creator-grid">
+        <!-- creator cards will be rendered by javascript. -->
+        <p class="empty-state">
+          Animocha is still in current development, but stay tuned for updates!
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#home">Animocha ☕</a>
+    <p>The digital cafe for animators.</p>
+    <p>&copy; <span id="current-year"></span>Animocha</p>
+  </footer>
+</body>
+</html>
