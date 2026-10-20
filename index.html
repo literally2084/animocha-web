@@ -19,41 +19,50 @@
   <script type="module" src="./js/app.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Animocha home">
-      <!-- <span class="brand-icon" aria-hidden="true">☕</span> -->
-      <span>Animocha</span>
-    </a>
 
-    <!--
-    <button
+<header class="site-header">
+  <button
       class="menu-toggle"
       type="button"
       aria-expanded="false"
       aria-controls="primary-nav"
     >
-      Menu
+      ☰
     </button>
 
+  
+    <a class="brand" href="#home" aria-label="Animocha home">
+      <!-- <span class="brand-icon" aria-hidden="true">☕</span> -->
+      <span>Animocha</span>
+    </a>
     
     <nav id="primary-nav" class="primary-nav"
          aria-label="Main navigation">
-      <a href="#explore">Explore</a>
+      <a href="#explore">Animations</a>
       <a href="#create">Create</a>
-      <a href="#channel">My Channel</a>
-      <a href="#media">My Media</a>
+      <a href="#channel">Channel</a>
+      <a href="#media">Media</a>
     </nav>
-    -->
 
     <a class="button button-primary" href="#login">
-      Sign in
+      Sign In
     </a>
   </header>
 
   <main id="main-content">
     <section id="home" class="hero">
+
+      <div class="hero-art" aria-hidden="true">
+        <img
+          src="./assets/img/animocha.logo.png"
+          alt="animocha-logo"
+        >
+      </div>
+
+      <br>
+
       <div class="hero-content">
-        <p class="eyebrow">THE DIGITAL CAFE FOR ANIMATORS</p>
+        <p class="eyebrow">THE DIGITAL CAFE FOR INDIE ANIMATION</p>
         <h1>Welcome to Animocha!</h1>
         <p class="hero-description">
           Discover independent creators, share your work,
@@ -72,12 +81,6 @@
         </div>
       </div>
 
-      <div class="hero-art" aria-hidden="true">
-        <img
-          src="./assets/img/blkesp-logo.png"
-          alt=""
-        >
-      </div>
     </section>
 
     <section id="explore" class="content-section">
@@ -90,17 +93,22 @@
       </div>
 
       <div id="creator-grid" class="creator-grid">
-        <!-- creator cards will be rendered by javascript. -->
-        <p class="empty-state">
-          Animocha is still in current development, but stay tuned for updates!
-        </p>
+        <!-- creator cards -->
+        <img class="hero-art" src="./assets/img/nv84.PNG"/>
+        <img class="hero-art" src="./assets/img/tcl.png"/>
+        <img class="hero-art" src="./assets/img/jungle.PNG"/>
+        <img class="hero-art" src="./assets/img/placeholder/more.png"/>
       </div>
+      
+      <p class="empty-state">
+        Animocha is still in current development, but stay tuned for updates!
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
     <a class="brand" href="#home">Animocha ☕</a>
-    <p>The digital cafe for animators.</p>
+    <p>The digital cafe for indie animation.</p>
     <p>&copy; <span id="current-year"></span> Animocha</p>
   </footer>
 </body>

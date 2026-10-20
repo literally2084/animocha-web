@@ -84,16 +84,18 @@
 }
 
 .hero {
-  min-height: 600px;
+  min-height: 50%;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 48px;
-  padding-block: 72px;
+  text-align: center;
+  justify-content: center;
 }
 
 .hero-content {
-  max-width: 650px;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .eyebrow {
@@ -104,9 +106,12 @@
 }
 
 .hero-description {
-  max-width: 550px;
   color: var(--color-muted);
   font-size: 1.1rem;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .hero-actions {
@@ -114,18 +119,29 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 28px;
+
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .hero-art {
-  padding: 20px;
+  width: 100%;
+  padding: 8px;
   border-radius: var(--radius-lg);
   background: var(--color-surface);
+  object-fit: cover;
+}
+
+/* Isolates the 4th card, spans it full width, and sizes it dynamically */
+.hero-art:nth-child(4) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: calc(33.333% - 14px); /* Perfect 1-column math including the 20px gap */
 }
 
 .hero-art img {
   width: 100%;
-  border-radius: var(--radius-md);
-  object-fit: contain;
 }
 
 .content-section {
@@ -135,7 +151,7 @@
 .section-heading {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -151,6 +167,8 @@
 }
 
 .empty-state {
+  justify-content: center;
+  text-align: center;
   color: var(--color-muted);
 }
 
@@ -195,23 +213,36 @@
   }
 
   .hero {
-    min-height: auto;
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding-block: 48px;
+    min-height: 50%;
+    display: grid;
+    align-items: center;
   }
 
   .hero-art {
-    max-width: 520px;
+    width: 100%;
+    min-height: 50%;
+    align-content: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: var(--radius-lg);
   }
 
   .creator-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: center;
+    justify-content: center;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .hero-art:nth-child(4) {
+    grid-column: auto;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 420px) {
   .creator-grid {
+    align-content: center;
+    justify-content: center;
     grid-template-columns: 1fr;
   }
 
