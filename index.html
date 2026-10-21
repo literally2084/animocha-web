@@ -1,129 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#17130F">
-
-  <title>Animocha ☕</title>
-  <meta
-    name="description"
-    content="The digital café for animators. Discover independent creators, animation, art, and stories!"
-  >
-
-   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://animocha.com/" />
-  <meta property="og:title" content="Animocha ☕" />
-  <meta property="og:description" content="The digital café for animators. Discover independent creators, animation, art, and stories!" />
-  <meta property="og:image" content="./assets/img/animocha.logo.png" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://animocha.com/" />
-  <meta property="twitter:title" content="Animocha ☕" />
-  <meta property="twitter:description" content="The digital café for animators. Discover independent creators, animation, art, and stories!" />
-  <meta property="twitter:image" content="./assets/img/animocha.logo.png" />
-
-  <link rel="icon" href="./assets/img/icons/blk-esp.png">
-  <link rel="stylesheet" href="./css/tokens.css">
-  <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" href="./css/layout.css">
-
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Discover independent animation, from ambitious series to personal short films, on Animocha.">
+  <title>Animocha</title>
+  <link rel="icon" href="./assets/img/blkesp-logo.png">
+  <link rel="stylesheet" href="./css/style.css">
   <script type="module" src="./js/app.js"></script>
 </head>
 <body>
-
-<header class="site-header">
-  <button
-      class="menu-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="primary-nav"
-    >
-      ☰
-    </button>
-
-  
-    <a class="brand" href="#home" aria-label="Animocha home">
-      <!-- <span class="brand-icon" aria-hidden="true">☕</span> -->
-      <span>Animocha</span>
-    </a>
-    
-    <nav id="primary-nav" class="primary-nav"
-         aria-label="Main navigation">
-      <a href="#explore">Animations</a>
-      <a href="#create">Create</a>
-      <a href="#channel">Channel</a>
-      <a href="#media">Media</a>
-    </nav>
-
-    <a class="button button-primary" href="/login">
-      Sign In
-    </a>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Animocha home"><img src="./assets/img/blkesp-logo.png" alt=""><span>Animocha</span></a>
+    <form class="search-bar" id="search-form" role="search"><span aria-hidden="true">⌕</span><input id="site-search" type="search" placeholder="Search films, series, creators…" aria-label="Search Animocha"><button type="submit" aria-label="Search">↵</button></form>
+    <nav class="top-actions" aria-label="Main navigation"><a class="nav-link" href="#home">Explore</a><a class="nav-link" href="#account">Sign in</a><a class="button button-primary" href="#account/signup">Join Animocha</a></nav>
   </header>
 
-  <main id="main-content">
-    <section id="home" class="hero">
+  <main id="main-content" class="app-shell" tabindex="-1">
+    <section id="home-view" class="page-view">
+      <section class="hero" id="hero" aria-label="Featured animation">
+        <div class="hero-backdrop" id="hero-backdrop"></div><div class="hero-shade"></div>
+        <div class="hero-copy"><p class="eyebrow" id="hero-kicker">THE DIGITAL CAFE OF INDIE ANIMATION</p><h1 id="hero-title">Stories outside<br>the mainstream.</h1><p class="hero-description" id="hero-description">Find your next favorite from independent animators, studios, and storytellers.</p><div class="hero-actions"><a id="hero-watch" class="button button-primary" href="#catalog">Explore animation <span aria-hidden="true">→</span></a><a class="button button-outline" href="#account/signup">Meet the creators</a></div><div class="hero-dots" id="hero-dots" aria-label="Featured title slides"></div></div>
+        <div class="hero-caption"><span class="live-mark"></span><span id="hero-caption-text">The digital cafe of independent animation</span></div>
+      </section>
 
-      <div class="hero-art" aria-hidden="true">
-        <img
-          src="./assets/img/animocha.logo.png"
-          alt="animocha-logo"
-        >
-      </div>
-
-      <br>
-
-      <div class="hero-content">
-        <p class="eyebrow">THE DIGITAL CAFE FOR INDIE ANIMATION</p>
-        <h1>Welcome to Animocha!</h1>
-        <p class="hero-description">
-          Discover independent creators, share your work,
-          and find your corner of the creative world. 
-          No AI, no unfair algorithms, just build 
-          your dreams here flexibly!
-        </p>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#explore">
-            COMING SOON!
-          </a>
-          <a class="button button-secondary" href="#create">
-            IN DEVELOPMENT...
-          </a>
-        </div>
-      </div>
-
+      <section class="browse-area" id="catalog">
+        <div class="section-heading"><div><p class="eyebrow">THE COLLECTION</p><h2>Find your next watch</h2></div><label class="sort-control">Sort by <select id="sort-select" aria-label="Sort titles"><option value="featured">Featured</option><option value="newest">Recently added</option><option value="rating">Highest rated</option><option value="title">Title A–Z</option></select></label></div>
+        <div class="browse-tabs" role="group" aria-label="Filter by format"><button class="browse-tab is-active" data-filter="all" type="button">Everything</button><button class="browse-tab" data-filter="film" type="button">Films</button><button class="browse-tab" data-filter="series" type="button">Series</button><button class="browse-tab" data-filter="short" type="button">Shorts & loops</button><button class="browse-tab" data-filter="live" type="button">Live</button></div>
+        <section class="content-section" id="featured-section"><div class="content-grid" id="featured-grid"></div></section>
+        <section class="content-section" id="catalog-section" hidden><div class="section-heading compact"><h2 id="catalog-heading">More to discover</h2><span class="section-note" id="result-count"></span></div><div class="content-grid" id="catalog-grid"></div></section>
+        <div class="empty-state" id="empty-state" hidden><div class="empty-symbol"><span>¯\_(ツ)_/¯</span></div><h3 id="empty-title">The next great story belongs here.</h3><p id="empty-description">We're getting the collection ready. Check back soon, or be one of the first creators to join.</p><a class="button button-primary" href="#account/signup">Create your account</a></div>
+      </section>
+      <section class="creator-callout"><div><p class="eyebrow">MADE BY AND FOR INDEPENDENT CREATORS</p><h2>Your work deserves its own spotlight.</h2><p>Build a channel, publish your films and series, and bring an audience into your creative world.</p></div><a class="button button-primary" href="#account/signup">Start your channel <span aria-hidden="true">↗</span></a></section>
     </section>
 
-    <section id="explore" class="content-section">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">IN DEVELOPMENT</p>
-          <h2>In current development...</h2>
-        </div>
-        <!-- <a href="#all-creators">placeholder</a> -->
+    <section id="account-view" class="page-view account-page" hidden>
+      <div class="account-art"><p class="eyebrow">WELCOME TO THE CAFE</p><h1>Human creators.<br><em>All united to create passions into reality.</em></h1><p>Discover independent animation, rate what moves you, and find the humans behind it.</p><div class="account-art-mark">Animocha</div></div>
+      <div class="account-panel"><a href="#home" class="back-link">← Back to explore</a><div class="account-tabs"><a id="login-tab" href="#account/login">Sign in</a><a id="signup-tab" href="#account/signup">Create account</a></div><h2 id="account-title">Welcome back.</h2><p id="account-intro" class="muted-copy">Sign in to rate titles and connect with creators.</p>
+        <form id="account-form" class="account-form"><label id="display-name-wrap" hidden>Display name<input id="account-name" name="name" autocomplete="name" placeholder="How people will know you"></label><label>Email address<input id="account-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label><label>Password<input id="account-password" name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="At least 8 characters"></label><button id="account-submit" class="button button-primary" type="submit">Sign in</button><p class="form-footnote">Your account is yours. We won't sell your viewing activity.</p><p class="form-message" id="account-message" role="status"></p></form>
       </div>
+    </section>
 
-      <div id="creator-grid" class="creator-grid">
-        <!-- creator cards -->
-        <a href="https://nova2084.com/"><img class="hero-art" src="./assets/img/nv84.PNG"/></a>
-        <img onclick="alert('more coming soon!')" class="hero-art" src="./assets/img/tcl.png"/>
-        <img onclick="alert('more coming soon!')" class="hero-art" src="./assets/img/jungle.PNG"/>
-        <img onclick="alert('more coming soon!')" class="hero-art" src="./assets/img/placeholder/more.png"/>
-      </div>
-      
-      <p class="empty-state">
-        Animocha is still in current development, but stay tuned for updates!
-      </p>
+    <section id="channel-view" class="page-view channel-page" hidden>
+      <div class="channel-banner" id="channel-banner"></div><div class="channel-profile"><div class="channel-avatar" id="channel-avatar">A</div><div class="channel-identity"><p class="eyebrow">CREATOR CHANNEL</p><h1 id="channel-name">Creator channel</h1><p id="channel-bio" class="muted-copy">Independent animation and ideas in motion.</p><div class="channel-stats" id="channel-stats"></div></div><button class="button button-outline" id="channel-follow" type="button">Follow channel</button></div>
+      <div class="section-heading channel-section-heading"><div><p class="eyebrow">FROM THIS CREATOR</p><h2>Published work</h2></div></div><div id="channel-grid" class="content-grid"></div><div id="channel-empty" class="empty-state" hidden><h3>No published titles yet.</h3><p>This creator's work will appear here when it's available.</p></div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="brand" href="#home">Animocha ☕</a>
-    <p>The digital cafe for indie animation.</p>
-    <p>&copy; <span id="current-year"></span> Animocha</p>
-  </footer>
+  <footer class="site-footer"><a class="footer-brand" href="#home">Animocha</a><p>The digital cafe of independent animation.</p><div><a href="#home">Explore</a><a href="#account/signup">Create an account</a></div></footer>
+
+  <dialog class="rating-dialog" id="rating-dialog" aria-labelledby="rating-title"><form id="rating-form"><button class="dialog-close" type="button" id="close-rating" aria-label="Close dialog">×</button><p class="eyebrow">YOUR TAKE</p><h2 id="rating-title">Rate this title</h2><p id="rating-subtitle" class="muted-copy">Ratings help viewers find work that resonates with them.</p><div class="rating-picker" role="group" aria-label="Choose a rating from one to five"><button type="button" data-rating="1" aria-label="1 out of 5">★</button><button type="button" data-rating="2" aria-label="2 out of 5">★</button><button type="button" data-rating="3" aria-label="3 out of 5">★</button><button type="button" data-rating="4" aria-label="4 out of 5">★</button><button type="button" data-rating="5" aria-label="5 out of 5">★</button></div><label class="review-label" for="rating-review">Optional short review</label><textarea id="rating-review" rows="3" maxlength="600" placeholder="What stood out to you?"></textarea><button class="button button-primary submit-rating" type="submit">Submit rating</button><p class="dialog-note">Ratings are saved when the ratings API is connected.</p></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

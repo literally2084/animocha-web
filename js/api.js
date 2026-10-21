@@ -1,37 +1,83 @@
-const API_BASE_URL = "/api/v1";
+import { config } from "./config.js";
+
+/**
+ * Small backend adapter for Animocha.
+ * The UI depends on these methods, not on a specific backend vendor.
+ * Return JSON from your API and map its fields in normalizeLive/normalizeVideo.
+ */
+const apiRoot = config.apiBaseUrl.replace(/\/$/, "");
 
 async function request(path, options = {}) {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    ...options,
-    headers: {
-      Accept: "application/json",
-      ...options.headers,
+    if (!apiRoot) {
+        throw new Error("Animocha API is not configured.");
+    }
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), config.requestTimeoutMs);
+
+    try {
+        const response = await fetch(`${apiRoot}${path}`, {
+            ...options,
+            signal: options.signal ?? controller.signal,
+            headers: {
+                Accept: "application/json",
+                ...(options.body ? { "Content-Type": "application/json" } : {}),
+                ...options.headers,
+            },
+            credentials: "include",
+        });
+
+        if (!response.ok) {
+            throw new Error(`API request failed (${response.status}): ${path}`);
+        }
+
+        if (response.status === 204) return null;
+        return response.json();
+    } finally {
+        clearTimeout(timeout);
+    }
+}
+
+function endpoint(name) {
+    return config.endpoints[name];
+}
+
+export const api = {
+    isConfigured: Boolean(apiRoot),
+
+    getLiveStreams() {
+        return request(endpoint("live"));
     },
-  });
 
-  if (!response.ok) {
-    throw new Error(`API request failed: ${response.status}`);
-  }
+    getVideos() {
+        return request(endpoint("videos"));
+    },
 
-  if (response.status === 204) {
-    return null;
-  }
+    getCommunities() {
+        return request(endpoint("communities"));
+    },
 
-  return response.json();
-}
+    getCurrentUser() {
+        return request(endpoint("currentUser"));
+    },
 
-export function getCreators() {
-  return request("/creators");
-}
+    getNotifications() {
+        return request(endpoint("notifications"));
+    },
 
-export function getChannel(username) {
-  return request(
-    `/channels/${encodeURIComponent(username)}`
-  );
-}
+    search(query) {
+        const url = `${endpoint("search")}?q=${encodeURIComponent(query)}`;
+        return request(url);
+    },
 
-export function getMedia(mediaId) {
-  return request(
-    `/media/${encodeURIComponent(mediaId)}`
-  );
+    /** Generic method for connecting new features without changing the UI adapter. */
+    request,
+};
+
+export function unwrapList(payload) {
+    if (Array.isArray(payload)) return payload;
+    if (Array.isArray(payload?.items)) return payload.items;
+    if (Array.isArray(payload?.results)) return payload.results;
+    if (Array.isArray(payload?.data)) return payload.data;
+    return [];
 }
