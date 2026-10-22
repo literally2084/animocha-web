@@ -1,37 +1,23 @@
 /**
- * Manual content source.
- * Add real titles here, or connect an API in config.js.
- * No sample creators, titles, view counts, or ratings are preloaded.
+ * Sample local preview content. Keep empty in production so all titles and ratings
+ * come from the configured API. The home page never invents titles or rating data.
  *
- * Example shape:
- * {
- *   id: "unique-title-id",
- *   title: "Title name",
- *   creator: "Creator name",
- *   type: "film", // live | film | series | short
- *   synopsis: "Short description",
- *   thumbnailUrl: "/assets/posters/title.webp",
- *   year: 2026,
- *   duration: "12 min",
- *   rating: 4.5, // optional aggregate rating from your backend
- *   ratingCount: 12,
- *   href: "/watch/unique-title-id"
- * }
+ * Title shape: { id, title, type, creator: { displayName, slug }, synopsis,
+ * thumbnailUrl, bannerUrl, videoUrl, rating, ratingCount, createdAt, access }
  */
 export const titles = [
-    
     {
-        id: "info",
-        title: "IN CURRENT DEVELOPMENT",
-        creator: "Animocha",
-        type: "short", // live | film | series | short
-        synopsis: "Animocha is currently in development!",
-        thumbnailUrl: "https://animocha.com/assets/img/animocha.logo.png",
-        year: 2026,
-        duration: "0 min",
-        rating: 4.5, //  aggregate rating from backend
-        ratingCount: 12,
-        href: "/watch/info"
+        id: "test1", 
+        title: "NOVA 2084",
+        type: "Placeholder",
+        creator: { displayName: "NOVA 2084"},
+        synopsis: "The Visionary Is Watching You.",
+        thumbnailUrl: "https://animocha.com/assets/img/placeholder/NOVA-84-sketch-promo1.png",
+        bannerUrl: "https://animocha.com/assets/img/placeholder/iris-glb.PNG",
+        videoUrl: "https://literally2084.github.io/real/resources/v.mp4",
+        rating: "0",
+        ratingCount: "0",
+        createdAt: "1/1/84",
+        access: "free_no_ads"
     }
-
 ];

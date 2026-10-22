@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050505">
-  <meta name="description" content="The digital cafe of indie animation. Currently in early development!">
+  <meta name="description" content="The digital cafe of indie animation! Discover independent animation, from ambitious series to personal short films, on Animocha.">
   <title>Animocha</title>
   <link rel="icon" href="./assets/img/blkesp-logo.png">
   <link rel="stylesheet" href="./css/style.css">
@@ -14,25 +14,38 @@
   <header class="topbar">
     <a class="brand" href="#home" aria-label="Animocha home"><img src="./assets/img/blkesp-logo.png" alt=""><span>Animocha</span></a>
     <form class="search-bar" id="search-form" role="search"><span aria-hidden="true">⌕</span><input id="site-search" type="search" placeholder="Search films, series, creators…" aria-label="Search Animocha"><button type="submit" aria-label="Search">↵</button></form>
-    <nav class="top-actions" aria-label="Main navigation"><a class="nav-link" href="#home">Explore</a><a class="nav-link" href="#account">Sign in</a><a class="button button-primary" href="#account/signup">Join Animocha</a></nav>
+    <nav class="top-actions" aria-label="Main navigation"><a class="nav-link" href="#home">Explore</a><a class="nav-link" href="#studio">Creator studio</a><a class="nav-link" href="#account/login">Sign in</a><a class="button button-primary" href="#account/signup">Join Animocha</a></nav>
   </header>
 
   <main id="main-content" class="app-shell" tabindex="-1">
     <section id="home-view" class="page-view">
       <section class="hero" id="hero" aria-label="Featured animation">
         <div class="hero-backdrop" id="hero-backdrop"></div><div class="hero-shade"></div>
-        <div class="hero-copy"><p class="eyebrow" id="hero-kicker">THE DIGITAL CAFE OF INDIE ANIMATION</p><h1 id="hero-title">Stories outside<br>the mainstream.</h1><p class="hero-description" id="hero-description">Find your next favorite from independent animators, studios, and storytellers.</p><div class="hero-actions"><a id="hero-watch" class="button button-primary" href="#catalog">Explore animation <span aria-hidden="true">→</span></a><a class="button button-outline" href="#account/signup">Meet the creators</a></div><div class="hero-dots" id="hero-dots" aria-label="Featured title slides"></div></div>
+        <div class="hero-copy"><p class="eyebrow" id="hero-kicker">THE DIGITAL CAFE OF INDIE ANIMATION</p><h1 id="hero-title">Stories outside<br>the mainstream.</h1><p class="hero-description" id="hero-description">Find your next favorite from independent animators, studios, and storytellers.</p><div class="hero-actions"><a id="hero-watch" class="button button-primary" href="#catalog">Explore animation <span aria-hidden="true">→</span></a><a class="button button-outline" href="#account/signup">View creators</a></div><div class="hero-dots" id="hero-dots" aria-label="Featured title slides"></div></div>
         <div class="hero-caption"><span class="live-mark"></span><span id="hero-caption-text">The digital cafe of independent animation</span></div>
       </section>
 
       <section class="browse-area" id="catalog">
-        <div class="section-heading"><div><p class="eyebrow">THE COLLECTION</p><h2>Find your next watch</h2></div><label class="sort-control">Sort by <select id="sort-select" aria-label="Sort titles"><option value="featured">Featured</option><option value="newest">Recently added</option><option value="rating">Highest rated</option><option value="title">Title A–Z</option></select></label></div>
+        <div class="section-heading"><div><p class="eyebrow">ANIMATIONS</p><h2>Find your next watch</h2></div><label class="sort-control">Sort by <select id="sort-select" aria-label="Sort titles"><option value="featured">Featured</option><option value="newest">Recently added</option><option value="rating">Highest rated</option><option value="title">Title A–Z</option></select></label></div>
         <div class="browse-tabs" role="group" aria-label="Filter by format"><button class="browse-tab is-active" data-filter="all" type="button">Everything</button><button class="browse-tab" data-filter="film" type="button">Films</button><button class="browse-tab" data-filter="series" type="button">Series</button><button class="browse-tab" data-filter="short" type="button">Shorts & loops</button><button class="browse-tab" data-filter="live" type="button">Live</button></div>
         <section class="content-section" id="featured-section"><div class="content-grid" id="featured-grid"></div></section>
         <section class="content-section" id="catalog-section" hidden><div class="section-heading compact"><h2 id="catalog-heading">More to discover</h2><span class="section-note" id="result-count"></span></div><div class="content-grid" id="catalog-grid"></div></section>
         <div class="empty-state" id="empty-state" hidden><div class="empty-symbol"><span>¯\_(ツ)_/¯</span></div><h3 id="empty-title">The next great story belongs here.</h3><p id="empty-description">We're getting the collection ready. Check back soon, or be one of the first creators to join.</p><a class="button button-primary" href="#account/signup">Create your account</a></div>
       </section>
-      <section class="creator-callout"><div><p class="eyebrow">MADE BY AND FOR INDEPENDENT CREATORS</p><h2>Your work deserves its own spotlight.</h2><p>Build a channel, publish your films and series, and bring an audience into your creative world.</p></div><a class="button button-primary" href="#account/signup">Start your channel <span aria-hidden="true">↗</span></a></section>
+      <section class="creator-callout"><div><p class="eyebrow">MADE BY AND FOR INDEPENDENT CREATORS</p><h2>Your work deserves its own spotlight.</h2><p>Build a channel, publish your films and series, and bring an audience into your creative world.</p></div><a class="button button-primary" href="#studio">Open creator studio <span aria-hidden="true">↗</span></a></section>
+
+      <section class="discovery-section" aria-labelledby="surprise-heading">
+        <div class="section-heading"><div><p class="eyebrow">NO ALGORITHM MADNESS</p><h2 id="surprise-heading">A little something unexpected</h2><p class="section-subtitle">Randomized picks from across the community. Every creator deserves a chance to be found.</p></div><div class="section-tools"><label class="sort-control">Order <select id="random-sort"><option value="shuffle">Shuffle</option><option value="newest">Recently added</option><option value="title">Title A–Z</option></select></label><button class="button button-outline button-small" id="reshuffle-titles" type="button">Shuffle titles</button></div></div>
+        <div id="random-titles-grid" class="content-grid"></div><p class="section-note" id="random-titles-note"></p>
+      </section>
+      <section class="discovery-section" aria-labelledby="channels-heading">
+        <div class="section-heading"><div><p class="eyebrow">MEET THE MAKERS</p><h2 id="channels-heading">Channels worth wandering into</h2><p class="section-subtitle">Discover creators as readily as you discover their work.</p></div><div class="section-tools"><label class="sort-control">Order <select id="random-channel-sort"><option value="shuffle">Shuffle</option><option value="name">Name A–Z</option><option value="titles">Most published</option></select></label><button class="button button-outline button-small" id="reshuffle-channels" type="button">Shuffle channels</button></div></div>
+        <div id="random-channels-grid" class="channel-card-grid"></div><p class="section-note" id="random-channels-note"></p>
+      </section>
+      <section class="discovery-section" aria-labelledby="rated-heading">
+        <div class="section-heading"><div><p class="eyebrow">COMMUNITY FAVORITES</p><h2 id="rated-heading">Highly rated</h2><p class="section-subtitle">A separate lane for work viewers have rated highly.</p></div><label class="sort-control">Show <select id="rated-sort"><option value="rating">Highest rated</option><option value="count">Most rated</option><option value="newest">Recently added</option></select></label></div>
+        <div id="rated-grid" class="content-grid"></div><p class="section-note" id="rated-note"></p>
+      </section> 
     </section>
 
     <section id="account-view" class="page-view account-page" hidden>
@@ -43,12 +56,74 @@
     </section>
 
     <section id="channel-view" class="page-view channel-page" hidden>
-      <div class="channel-banner" id="channel-banner"></div><div class="channel-profile"><div class="channel-avatar" id="channel-avatar">A</div><div class="channel-identity"><p class="eyebrow">CREATOR CHANNEL</p><h1 id="channel-name">Creator channel</h1><p id="channel-bio" class="muted-copy">Independent animation and ideas in motion.</p><div class="channel-stats" id="channel-stats"></div></div><button class="button button-outline" id="channel-follow" type="button">Follow channel</button></div>
+      <div class="channel-banner" id="channel-banner"></div><div class="channel-profile"><div class="channel-avatar" id="channel-avatar">A</div><div class="channel-identity"><p class="eyebrow"></p><h1 id="channel-name">Creator channel</h1><p id="channel-bio" class="muted-copy">No bio set.</p><div class="channel-stats" id="channel-stats"></div></div><button class="button button-outline" id="channel-follow" type="button">Follow channel</button></div>
       <div class="section-heading channel-section-heading"><div><p class="eyebrow">FROM THIS CREATOR</p><h2>Published work</h2></div></div><div id="channel-grid" class="content-grid"></div><div id="channel-empty" class="empty-state" hidden><h3>No published titles yet.</h3><p>This creator's work will appear here when it's available.</p></div>
+    </section>
+
+    <section id="watch-view" class="page-view watch-page" hidden>
+      <a class="back-link" href="#home">← Back to Animocha</a>
+      <div class="watch-layout">
+        <div class="watch-main">
+          <div class="player-shell" id="player-shell">
+            <div class="player-loading" id="player-loading"><span class="loading-ring"></span><strong>Brewing up the coffee</strong><span>Loading playback details from Animocha.</span></div>
+            <video id="video-player" controls playsinline preload="metadata" hidden></video>
+            <div class="player-error" id="player-error" hidden><h2>Playback isn't ready yet</h2><p id="player-error-message">We're waiting for a playable source from the backend.</p><button class="button button-outline" id="retry-player" type="button">Try again</button></div>
+          </div>
+          <div class="watch-title-row"><div><p class="eyebrow" id="watch-type">PLACEHOLDER</p><h1 id="watch-title">Loading title…</h1><p class="muted-copy" id="watch-meta"></p></div><button class="button button-outline" id="watch-rate" type="button">Rate title ★</button></div>
+          <p class="watch-description" id="watch-description"></p>
+          <div class="watch-creator" id="watch-creator"></div>
+        </div>
+        <aside class="watch-sidebar">
+          <p class="eyebrow">SUPPORT THE CREATOR</p><h2>Choose how to watch</h2><p class="muted-copy">Creators choose which access options are available for each title.</p>
+          <div id="access-options" class="access-options"><div class="access-loading">Loading available access options…</div></div>
+          <p class="legal-small">Availability, pricing, ad settings, and purchase rights are confirmed by the backend before checkout.</p>
+        </aside>
+      </div>
+      <section class="discovery-section"><div class="section-heading"><div><p class="eyebrow">KEEP EXPLORING</p><h2>More from Animocha</h2></div></div><div id="watch-related-grid" class="content-grid"></div></section>
+    </section>
+
+    <section id="studio-view" class="page-view studio-page" hidden>
+      <div class="page-intro"><p class="eyebrow">CREATOR WORKSPACE</p><h1>Studio</h1><p>Shape your channel, publish your animation, and decide how viewers can support your work.</p><div class="studio-nav"><a href="#studio">Overview</a><a href="#studio/channel">Channel setup</a><a href="#studio/monetization">Monetization</a><a href="#studio/content">Your titles</a></div></div>
+      <div id="studio-overview" class="studio-content">
+        <div class="studio-stat-grid"><article class="studio-stat"><span>Published titles</span><strong id="studio-title-count">—</strong></article><article class="studio-stat"><span>Channel</span><strong id="studio-channel-status">Not connected</strong></article><article class="studio-stat"><span>Monetization</span><strong>Creator controlled</strong></article></div>
+        <div class="studio-panel"><p class="eyebrow">YOUR NEXT STEP</p><h2>Give your work a home.</h2><p>Set up a public channel and add published titles through your connected creator API.</p><div class="studio-actions"><a class="button button-primary" href="#studio/channel">Configure channel</a><a class="button button-outline" href="#studio/monetization">Review monetization</a><a class="button button-outline" href="#account/login">Sign in</a></div></div>
+      </div>
+      <div id="studio-channel-panel" class="studio-panel" hidden><p class="eyebrow">CHANNEL CONFIGURATION</p><h2>Channel profile</h2><p>Connect these fields to your creator settings endpoint to persist edits.</p><form id="studio-channel-form" class="studio-form"><label>Channel name<input id="studio-name" required maxlength="80" placeholder="Your studio or creator name"></label><label>Channel slug<input id="studio-slug" required pattern="[a-zA-Z0-9_-]+" placeholder="your-channel"></label><label>Short bio<textarea id="studio-bio" rows="4" maxlength="800" placeholder="Tell viewers what you make."></textarea></label><label>Banner image URL<input id="studio-banner" type="url" placeholder="https://…"></label><button class="button button-primary" type="submit">Save channel profile</button><p class="form-message" id="studio-channel-message" role="status"></p></form></div>
+      <div id="studio-monetization-panel" class="studio-content" hidden><p class="eyebrow">CREATOR REVENUE</p><h2>Four ways to release your work</h2><p class="muted-copy">Enable the access models that make sense for each title. Actual transactions and entitlements must be validated by the backend.</p><div class="monetization-grid">
+        <article class="monetization-card"><span class="monetization-number">01</span><h3>Free to watch</h3><p>Offer high-standard streaming at no cost. Choose whether your title includes ads, based on your release strategy.</p><ul><li>Ad-supported free viewing</li><li>Free viewing without ads</li><li>Creator-controlled availability</li></ul></article>
+        <article class="monetization-card"><span class="monetization-number">02</span><h3>Pay per view</h3><p>Charge for a single viewing entitlement, with clear price and access terms before checkout.</p><ul><li>Single-title access</li><li>Backend-verified payment</li><li>Clear viewing window</li></ul></article>
+        <article class="monetization-card"><span class="monetization-number">03</span><h3>Timed rental</h3><p>Let viewers rent an animation for a defined window, such as 48 hours after first playback.</p><ul><li>Configurable rental duration</li><li>Expiry enforced server-side</li><li>Transparent renewal terms</li></ul></article>
+        <article class="monetization-card"><span class="monetization-number">04</span><h3>Own a copy</h3><p>Sell a permanent purchase entitlement to a downloadable copy when the creator allows it.</p><ul><li>Downloadable file or package</li><li>Clear license and usage rights</li><li>Ownership record in account</li></ul></article>
+      </div><div class="studio-panel"><h3>Configure title access</h3><p>Choose a title to edit monetization through your API.</p><form id="monetization-form" class="studio-form"><label>Title<select id="monetization-title" required><option value="">Select a title…</option></select></label><fieldset class="access-config"><legend>Available access options</legend><label><input class="monetization-option" type="checkbox" value="free_ads" checked> Free with ads</label><label><input class="monetization-option" type="checkbox" value="free_no_ads"> Free without ads</label><label><input class="monetization-option" type="checkbox" value="pay_per_view"> Pay per view</label><label><input class="monetization-option" type="checkbox" value="rental"> Timed rental</label><label><input class="monetization-option" type="checkbox" value="purchase"> Purchase a downloadable copy</label></fieldset><div class="price-config-grid"><label>Pay-per-view price<input id="price-ppv" type="number" min="0" step="0.01" placeholder="0.00"></label><label>Rental price<input id="price-rental" type="number" min="0" step="0.01" placeholder="0.00"></label><label>Copy purchase price<input id="price-purchase" type="number" min="0" step="0.01" placeholder="0.00"></label></div><label>Rental window in hours<input id="monetization-rental-hours" type="number" min="1" max="8760" value="48"></label><label><input id="monetization-download" type="checkbox" checked> Allow downloadable copy purchase</label><button class="button button-primary" type="submit">Save access settings</button><p class="form-message" id="monetization-message" role="status"></p></form></div></div>
+      <div id="studio-content-panel" class="studio-panel" hidden><p class="eyebrow">YOUR LIBRARY</p><h2>Your published titles</h2><div id="studio-titles-grid" class="content-grid"></div></div>
+    </section>
+
+    <section id="legal-view" class="page-view legal-page" hidden>
+      <div class="page-intro"><p class="eyebrow">ANIMOCHA COMMUNITY</p><h1 id="legal-heading">Terms of Service</h1><p id="legal-subheading">A clear foundation for creators, viewers, and the work they share.</p><div class="legal-tabs"><a href="#legal/tos">Terms of Service</a><a href="#legal/guidelines">Community Guidelines</a></div></div>
+      <article id="legal-tos" class="legal-document">
+        <p class="legal-notice">Placeholder for product and legal review — not legal advice. Replace placeholders and have qualified counsel review before launch.</p>
+        <h2>1. Using Animocha</h2><p>Animocha is a platform for discovering, viewing, rating, and supporting independent animation. By creating an account or using services that require one, you agree to these terms and any applicable product-specific terms.</p>
+        <h2>2. Accounts and security</h2><p>Provide accurate information, protect your credentials, and notify the platform if you believe your account has been compromised. You are responsible for activity authorized through your account, subject to applicable law.</p>
+        <h2>3. Creator content and rights</h2><p>Creators retain ownership of their work. By publishing content, creators grant Animocha only the limited licenses needed to host, process, stream, display, promote, and deliver that content according to their publishing settings. Creators must have the rights and permissions needed for everything they upload.</p>
+        <h2>4. Access models, payments, and refunds</h2><p>Titles may be free with ads, free without ads, pay-per-view, rented for a limited time, or sold with a downloadable-copy license. The specific price, access duration, ad experience, download availability, and license must be shown before purchase. A purchase of a copy does not transfer copyright unless an explicit written agreement says so. Refunds, taxes, payment processing, and consumer rights are subject to applicable law and the final published refund policy.</p>
+        <h2>5. Ratings and discovery</h2><p>Ratings should reflect genuine viewing experiences. Do not manipulate ratings, coordinate fraud, or use automated activity to distort discovery. Randomized discovery does not guarantee placement, reach, or revenue.</p>
+        <h2>6. Prohibited conduct and enforcement</h2><p>Do not violate others' rights, evade access controls, interfere with platform security, upload unlawful material, or harass other users. We may remove content or restrict accounts under a published enforcement process, with appeal routes where available and required.</p>
+        <h2>7. Availability and changes</h2><p>Services may change or become unavailable. We will communicate material changes as required by law. Nothing in these terms limits rights that cannot legally be waived.</p>
+        <h2>8. Contact and governing terms</h2><p>Replace this section with the operating entity, contact address, dispute process, effective date, and jurisdiction reviewed by counsel before public launch.</p>
+      </article>
+      <article id="legal-guidelines" class="legal-document" hidden>
+        <p class="legal-notice">Community policy placeholder — finalize reporting, moderation, and appeal workflows before launch.</p>
+        <h2>Make room for creative work</h2><p>Animocha is built for independent animation and the people who make it. Help keep it welcoming, safe, and useful for creators and audiences.</p>
+        <h2>Respect people</h2><ul><li>No targeted harassment, threats, stalking, doxxing, or hateful attacks.</li><li>Critique the work, not a creator's protected traits or personal safety.</li><li>Do not impersonate creators or misrepresent affiliations.</li></ul>
+        <h2>Respect creative rights</h2><ul><li>Upload only work you own or have permission to publish.</li><li>Do not repost full animations without authorization or circumvent paid access.</li><li>No AI-generated content. Disclose third-party material when platform policy or law requires it.</li></ul>
+        <h2>Keep discovery honest</h2><ul><li>No fake ratings, review brigading, engagement bots, or paid review manipulation.</li><li>Do not mislabel content, thumbnails, age suitability, or monetization terms.</li><li>Do not spam comments, reviews, or creator outreach.</li></ul>
+        <h2>Safety and lawful content</h2><ul><li>No unlawful content, credible threats, exploitation, or sexual content involving minors.</li><li>Use accurate age ratings and content notices where appropriate.</li><li>Do not use the service to facilitate fraud, malware, or other harmful activity.</li></ul>
+        <h2>Reporting and appeals</h2><p>Use the platform's reporting tools when available. TODO: Include relevant reporting URL + a more concise explanation. Enforcement will be proportionate, documented, and subject to an appeal process.</p>
+      </article>
     </section>
   </main>
 
-  <footer class="site-footer"><a class="footer-brand" href="#home">Animocha</a><p>The digital cafe of independent animation.</p><div><a href="#home">Explore</a><a href="#account/signup">Create an account</a></div></footer>
+  <footer class="site-footer"><a class="footer-brand" href="#home">Animocha</a><p>The digital cafe of independent animation.</p><div><a href="#home">Explore</a><a href="#studio">Creator studio</a><a href="#legal/tos">Terms</a><a href="#legal/guidelines">Guidelines</a><a href="#account/signup">Create an account</a></div></footer>
 
   <dialog class="rating-dialog" id="rating-dialog" aria-labelledby="rating-title"><form id="rating-form"><button class="dialog-close" type="button" id="close-rating" aria-label="Close dialog">×</button><p class="eyebrow">YOUR TAKE</p><h2 id="rating-title">Rate this title</h2><p id="rating-subtitle" class="muted-copy">Ratings help viewers find work that resonates with them.</p><div class="rating-picker" role="group" aria-label="Choose a rating from one to five"><button type="button" data-rating="1" aria-label="1 out of 5">★</button><button type="button" data-rating="2" aria-label="2 out of 5">★</button><button type="button" data-rating="3" aria-label="3 out of 5">★</button><button type="button" data-rating="4" aria-label="4 out of 5">★</button><button type="button" data-rating="5" aria-label="5 out of 5">★</button></div><label class="review-label" for="rating-review">Optional short review</label><textarea id="rating-review" rows="3" maxlength="600" placeholder="What stood out to you?"></textarea><button class="button button-primary submit-rating" type="submit">Submit rating</button><p class="dialog-note">Ratings are saved when the ratings API is connected.</p></form></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

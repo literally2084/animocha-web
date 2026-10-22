@@ -1,9 +1,9 @@
 import { config } from "./config.js";
 
 /**
- * Small backend adapter for Animocha.
- * The UI depends on these methods, not on a specific backend vendor.
- * Return JSON from your API and map its fields in normalizeLive/normalizeVideo.
+ * small backend adapter for Animocha.
+ * the UI depends on these methods, not on a specific backend vendor.
+ * TODO: Return JSON from the API and map its fields in normalizeLive/normalizeVideo.
  */
 const apiRoot = config.apiBaseUrl.replace(/\/$/, "");
 
@@ -70,7 +70,7 @@ export const api = {
         return request(url);
     },
 
-    /** Generic method for connecting new features without changing the UI adapter. */
+    /** basic method for connecting new features without changing the UI adapter. */
     request,
 };
 

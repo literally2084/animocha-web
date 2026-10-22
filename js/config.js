@@ -1,16 +1,22 @@
-/** Configure a compatible API base URL here. Leave empty to run the frontend without a backend. */
+/** API configuration. Use the FastAPI base URL including any API prefix, e.g. http://127.0.0.1:8000/api. */
 export const config = Object.freeze({
-  apiBaseUrl: "",
-  requestTimeoutMs: 10000,
+  apiBaseUrl: "http://127.0.0.1:8000/api",
+  requestTimeoutMs: 12000,
   endpoints: {
     titles: "/titles",
-    live: "/streams?status=live",
+    titleDetail: "/titles",
     search: "/search",
     ratings: "/ratings",
     login: "/auth/login",
     signup: "/auth/signup",
     me: "/auth/me",
     channels: "/channels",
+    channelSettings: "/studio/channel",
     follow: "/channels/follow",
+    monetization: "/studio/titles",
+    checkout: "/checkout",
+    playback: "/titles",
+    studios: "/studio",
+    channelsDiscovery: "/channels",
   },
 });
