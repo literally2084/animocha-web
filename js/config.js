@@ -18,5 +18,13 @@ export const config = Object.freeze({
     playback: "/titles",
     studios: "/studio",
     channelsDiscovery: "/channels",
+    library: "/me/library",
+    purchases: "/me/purchases",
+    notifications: "/me/notifications",
+    analytics: "/studio/analytics",
+    payouts: "/studio/payouts",
+    upload: "/studio/titles",
+    report: "/reports",
+    help: "/help",
   },
 });

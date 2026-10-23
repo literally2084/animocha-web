@@ -19,5 +19,19 @@ export const titles = [
         ratingCount: "0",
         createdAt: "1/1/84",
         access: "free_no_ads"
+    },
+    {
+        id: "test2", 
+        title: "Animocha",
+        type: "Placeholder",
+        creator: { displayName: "animocha"},
+        synopsis: "In development!",
+        thumbnailUrl: "https://animocha.com/assets/img/animocha-alt.png",
+        bannerUrl: "https://animocha.com/assets/img/animocha-alt.png",
+        videoUrl: "",
+        rating: "0",
+        ratingCount: "0",
+        createdAt: "1/1/84",
+        access: "free_no_ads"
     }
 ];

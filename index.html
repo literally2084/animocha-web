@@ -14,7 +14,7 @@
   <header class="topbar">
     <a class="brand" href="#home" aria-label="Animocha home"><img src="./assets/img/blkesp-logo.png" alt=""><span>Animocha</span></a>
     <form class="search-bar" id="search-form" role="search"><span aria-hidden="true">⌕</span><input id="site-search" type="search" placeholder="Search films, series, creators…" aria-label="Search Animocha"><button type="submit" aria-label="Search">↵</button></form>
-    <nav class="top-actions" aria-label="Main navigation"><a class="nav-link" href="#home">Explore</a><a class="nav-link" href="#studio">Creator studio</a><a class="nav-link" href="#account/login">Sign in</a><a class="button button-primary" href="#account/signup">Join Animocha</a></nav>
+    <nav class="top-actions" aria-label="Main navigation"><a class="nav-link" href="#home">Explore</a><a class="nav-link" href="#library">My library</a><a class="nav-link" href="#studio">Creator studio</a><a class="nav-link" href="#account/login">Sign in</a><a class="button button-primary" href="#account/signup">Join Animocha</a></nav>
   </header>
 
   <main id="main-content" class="app-shell" tabindex="-1">
@@ -76,14 +76,14 @@
         <aside class="watch-sidebar">
           <p class="eyebrow">SUPPORT THE CREATOR</p><h2>Choose how to watch</h2><p class="muted-copy">Creators choose which access options are available for each title.</p>
           <div id="access-options" class="access-options"><div class="access-loading">Loading available access options…</div></div>
-          <p class="legal-small">Availability, pricing, ad settings, and purchase rights are confirmed by the backend before checkout.</p>
+          <p class="legal-small">TODO: Connect the playback/access endpoint to return the title's available methods and current prices. <br> Availability, pricing, ad settings, and purchase rights are confirmed by the backend before checkout.</p>
         </aside>
       </div>
       <section class="discovery-section"><div class="section-heading"><div><p class="eyebrow">KEEP EXPLORING</p><h2>More from Animocha</h2></div></div><div id="watch-related-grid" class="content-grid"></div></section>
     </section>
 
     <section id="studio-view" class="page-view studio-page" hidden>
-      <div class="page-intro"><p class="eyebrow">CREATOR WORKSPACE</p><h1>Studio</h1><p>Shape your channel, publish your animation, and decide how viewers can support your work.</p><div class="studio-nav"><a href="#studio">Overview</a><a href="#studio/channel">Channel setup</a><a href="#studio/monetization">Monetization</a><a href="#studio/content">Your titles</a></div></div>
+      <div class="page-intro"><p class="eyebrow">CREATOR WORKSPACE</p><h1>Studio</h1><p>Shape your channel, publish your animation, and decide how viewers can support your work.</p><div class="studio-nav"><a href="#studio">Overview</a><a href="#studio/upload">Upload</a><a href="#studio/channel">Channel setup</a><a href="#studio/monetization">Monetization</a><a href="#studio/content">Your titles</a><a href="#studio/analytics">Analytics</a><a href="#studio/payouts">Payouts</a></div></div>
       <div id="studio-overview" class="studio-content">
         <div class="studio-stat-grid"><article class="studio-stat"><span>Published titles</span><strong id="studio-title-count">—</strong></article><article class="studio-stat"><span>Channel</span><strong id="studio-channel-status">Not connected</strong></article><article class="studio-stat"><span>Monetization</span><strong>Creator controlled</strong></article></div>
         <div class="studio-panel"><p class="eyebrow">YOUR NEXT STEP</p><h2>Give your work a home.</h2><p>Set up a public channel and add published titles through your connected creator API.</p><div class="studio-actions"><a class="button button-primary" href="#studio/channel">Configure channel</a><a class="button button-outline" href="#studio/monetization">Review monetization</a><a class="button button-outline" href="#account/login">Sign in</a></div></div>
@@ -96,6 +96,10 @@
         <article class="monetization-card"><span class="monetization-number">04</span><h3>Own a copy</h3><p>Sell a permanent purchase entitlement to a downloadable copy when the creator allows it.</p><ul><li>Downloadable file or package</li><li>Clear license and usage rights</li><li>Ownership record in account</li></ul></article>
       </div><div class="studio-panel"><h3>Configure title access</h3><p>Choose a title to edit monetization through your API.</p><form id="monetization-form" class="studio-form"><label>Title<select id="monetization-title" required><option value="">Select a title…</option></select></label><fieldset class="access-config"><legend>Available access options</legend><label><input class="monetization-option" type="checkbox" value="free_ads" checked> Free with ads</label><label><input class="monetization-option" type="checkbox" value="free_no_ads"> Free without ads</label><label><input class="monetization-option" type="checkbox" value="pay_per_view"> Pay per view</label><label><input class="monetization-option" type="checkbox" value="rental"> Timed rental</label><label><input class="monetization-option" type="checkbox" value="purchase"> Purchase a downloadable copy</label></fieldset><div class="price-config-grid"><label>Pay-per-view price<input id="price-ppv" type="number" min="0" step="0.01" placeholder="0.00"></label><label>Rental price<input id="price-rental" type="number" min="0" step="0.01" placeholder="0.00"></label><label>Copy purchase price<input id="price-purchase" type="number" min="0" step="0.01" placeholder="0.00"></label></div><label>Rental window in hours<input id="monetization-rental-hours" type="number" min="1" max="8760" value="48"></label><label><input id="monetization-download" type="checkbox" checked> Allow downloadable copy purchase</label><button class="button button-primary" type="submit">Save access settings</button><p class="form-message" id="monetization-message" role="status"></p></form></div></div>
       <div id="studio-content-panel" class="studio-panel" hidden><p class="eyebrow">YOUR LIBRARY</p><h2>Your published titles</h2><div id="studio-titles-grid" class="content-grid"></div></div>
+    </section>
+
+    <section id="utility-view" class="page-view utility-page" hidden>
+      <div id="utility-content"></div>
     </section>
 
     <section id="legal-view" class="page-view legal-page" hidden>
@@ -123,7 +127,7 @@
     </section>
   </main>
 
-  <footer class="site-footer"><a class="footer-brand" href="#home">Animocha</a><p>The digital cafe of independent animation.</p><div><a href="#home">Explore</a><a href="#studio">Creator studio</a><a href="#legal/tos">Terms</a><a href="#legal/guidelines">Guidelines</a><a href="#account/signup">Create an account</a></div></footer>
+  <footer class="site-footer"><a class="footer-brand" href="#home">Animocha</a><p>The digital cafe of independent animation.</p><div><a href="#home">Explore</a><a href="#library">My library</a><a href="#purchases">Purchases</a><a href="#help">Help center</a><a href="#report">Report a concern</a><a href="#privacy">Privacy</a><a href="#studio">Creator studio</a><a href="#legal/tos">Terms</a><a href="#legal/guidelines">Guidelines</a><a href="#privacy-policy">Privacy policy</a><a href="#refunds">Refunds</a><a href="#accessibility">Accessibility</a><a href="#copyright">Copyright</a><a href="#account/signup">Create an account</a></div></footer>
 
   <dialog class="rating-dialog" id="rating-dialog" aria-labelledby="rating-title"><form id="rating-form"><button class="dialog-close" type="button" id="close-rating" aria-label="Close dialog">×</button><p class="eyebrow">YOUR TAKE</p><h2 id="rating-title">Rate this title</h2><p id="rating-subtitle" class="muted-copy">Ratings help viewers find work that resonates with them.</p><div class="rating-picker" role="group" aria-label="Choose a rating from one to five"><button type="button" data-rating="1" aria-label="1 out of 5">★</button><button type="button" data-rating="2" aria-label="2 out of 5">★</button><button type="button" data-rating="3" aria-label="3 out of 5">★</button><button type="button" data-rating="4" aria-label="4 out of 5">★</button><button type="button" data-rating="5" aria-label="5 out of 5">★</button></div><label class="review-label" for="rating-review">Optional short review</label><textarea id="rating-review" rows="3" maxlength="600" placeholder="What stood out to you?"></textarea><button class="button button-primary submit-rating" type="submit">Submit rating</button><p class="dialog-note">Ratings are saved when the ratings API is connected.</p></form></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
